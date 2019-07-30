@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>js-objects</title>
+  </head>
+  <body>
+
+  <h2>Exercise 1</h2>
+    <p id = "ex1"></p>
+    <!--(button) part of exercise 3:  -->
+    <button id="myBtnme">Picture Xandra</button>
+      <img id= "me" src = "fmembers_jpgs/me.jpg" alt = "image myself"
+        style = "width:128px; height:128px;
+          display:none;">
+
+  <h2>Exercise 2</h2>
+    <p id = "ex2"></p>
+
+
+
+  <h2>Exercise 3</h2>
+    <p id = "ex3"></p>
+
+    <button id="myBtnfather">Picture father</button>
+    <img id = "dad" src = "fmembers_jpgs/father.jpg" alt = "image father"
+     style = "width:128px; height:128px;
+     display:none;">
+
+
+    <p></p>
+
+    <button id="myBtnmother">Picture mother</button>
+      <img id = "mum" src = "fmembers_jpgs/mother.jpg" alt = "image mother"
+        style = "width:128px; height:128px;
+          display:none;">
+    <p></p>
+
+    <button id="myBtnsister">Picture sister</button>
+      <img id= "sis" src = "fmembers_jpgs/sister.jpg" alt = "image sister"
+        style = "width:128px; height:128px;
+          display:none;">
+
+
+
+    <script>
+
+      /*Exercise 3*/
+      document.getElementById("myBtnfather").addEventListener("click", function(){
+      console.log ("button click father");
+      let x = document.getElementById("dad");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none"
+      }
+      });
+
+      document.getElementById("myBtnmother").addEventListener("click", function(){
+      let x = document.getElementById("mum");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+      });
+
+      document.getElementById("myBtnsister").addEventListener("click", function(){
+      let x = document.getElementById("sis");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+      });
+
+
+
+    /*Excercise 1 about yourself in this exercise. Create an object
+     named 'aboutMe' with properties.*/
+
+      let aboutMe = {
+        firstName: "Xandra",
+        lastName: "De Backer",
+        age: "50",
+        gender: "female",
+        favouriteFood: "Steppegras",
+        favouriteSeries:"ID investigation",
+        favouriteMovies:"School of Rock",
+        single:"yes",
+            };
+
+      document.getElementById("ex1").innerHTML =
+      "Hi, my name is" +" " + aboutMe.firstName +" " +aboutMe.lastName +"." +" "
+       +"I am a" + " " +aboutMe.age + " " +"year old" + " " + aboutMe.gender
+       + " " +"and"+ " " +aboutMe.single +" " + ", I am single."+ " "
+      + "My favourite food is" + " " +aboutMe.favouriteFood + "."+" " +"'"
+      + aboutMe.favouriteSeries +"'" +" "+ "belongs to my favourite series and"
+      + " "+ "'" +aboutMe.favouriteMovies +"'"+ " "+"is a random favourite movie.";
+
+      console.log(aboutMe);
+
+      //code for picture from myself//
+
+        document.getElementById("myBtnme").addEventListener("click", function(){
+        console.log ("button click Xandra");
+        let x = document.getElementById("me");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none"
+        }
+        });
+
+
+/* Excercise 2 Create a constructor named "FamilyMember". By using this method,
+create 3 objects: father, mother, brother/sister*/
+
+   function FamilyMember (firstName, lastName, age, gender, favouriteFood, favouriteSeries, favouriteMovies, single){
+     this.firstName = firstName;
+     this.lastName = lastName;
+     this.age = age;
+     this.gender = gender;
+     this.favouriteFood = favouriteFood;
+     this.favouriteSeries = favouriteSeries;
+     this.favouriteMovies = favouriteMovies;
+     this.single = single;
+   }
+   let father = new FamilyMember('Frans', 'De Backer', '80','male','friet stoofvlees','Der Alte', 'Doornroosje','no');
+   let mother = new FamilyMember('Yvette', 'Peeters', '78', 'female','steak poivre', 'Familie', 'Assepoester','no');
+   let sister = new FamilyMember('Yvonne','De Backer', '58','female','spaghetty','Telefacts','Klein Duimpje','yes');
+
+   document.getElementById("ex2").innerHTML =
+   "<h4>Father</h4>" +
+   "<ul><li>FirstName:" + father.firstName + "</li>"
+     + "<li>" + father.lastName +"</li>"
+      + "<li>" + father.age + "</li>"
+      + "<li>"+ father.gender + "</li>"
+      + "<li>"+ father.favouriteFood + "</li>"
+      + "<li>"+ father.favouriteSeries+ "</li>"
+      + "<li>"+ father.favouriteMovies + "</li>"
+      + "<li>"+ father.single + "</li>"
+    "</ul>"
+    ;
+
+
+
+
+
+    document.getElementById("ex2").innerHTML +=
+    "<h4>Mother</h4>" +
+    "<ul><li>" + mother.firstName + "</li>"
+      + "<li>" + mother.lastName +"</li>"
+       + "<li>" + mother.age + "</li>"
+       + "<li>"+ mother.gender + "</li>"
+       + "<li>"+ mother.favouriteFood + "</li>"
+       + "<li>"+ mother.favouriteSeries+ "</li>"
+       + "<li>"+ mother.favouriteMovies + "</li>"
+       + "<li>"+ mother.single + "</li>"
+     "</ul>";
+
+     document.getElementById("ex2").innerHTML +=
+     "<h4>Sister</h4>" +
+     "<ul><li>" + sister.firstName + "</li>"
+       + "<li>" + sister.lastName +"</li>"
+       + "<li>" + sister.age + "</li>"
+       + "<li>" + sister.gender + "</li>"
+       + "<li>" + sister.favouriteFood + "</li>"
+       + "<li>" + sister.favouriteSeries+ "</li>"
+       + "<li>" + sister.favouriteMovies + "</li>"
+       + "<li>" + sister.single + "</li>"
+      "</ul>";
+
+
+
+
+
+
+</script>
+
+  </body>
+</html>
